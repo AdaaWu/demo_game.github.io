@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Game</title>
+  <link rel='stylesheet' type='text/css' href='css/index.css'/>
+  <script type='text/javascript' src='js/jquery-1.11.3.min.js'></script>
+  <script type='text/javascript' src='js/game.js'></script>
+ </head>
+ <body onselectstart="return false">
+	<nav id='header'></nav>
+	<section id='main'>
+		<div class='center'>
+			<div class='table'>
+				<div class='t-mask'>
+					<div class='glass'>
+						<i class='dice dice-1' style="left: 90px; top: 115px;"></i>
+						<i class='dice dice-2' style="left: 150px; top: 115px;"></i>
+						<i class='dice dice-3' style="left: 210px; top: 115px;"></i>
+					</div>
+				</div>
+				<div class='item-info-tip item-info-tip-1'>
+					<div class='item-hide'>
+						<font>【大】：</font>
+						开奖号码三个号和值为11-17即中奖。<br/>
+						<font>【实例】：</font>
+						投注「大」，开奖结果为256，和值即为13（大），即为中奖（不包含豹子号）
+					</div>
+				</div>
+				<div class='item-info-tip item-info-tip-2'>
+					<div class='item-hide'>
+						<font>【豹子】：</font>
+						对相同的三个号码111、222、333、444、555、666中的任意一个进行投注，所选号码开出即中奖。<br/>
+						<font>【实例】：</font>
+						投注111，开奖号码为111，即为中奖。
+					</div>
+				</div>
+				<div class='item-info-tip item-info-tip-3'>
+					<div class='item-hide'>
+						<font>【对子】：</font>
+						从11～66中至少选择一对号码，开奖号码出现所选号码即中奖，顺序不限。<br/>
+						<font>【实例】：</font>
+						投注11，开奖号码为112、121、211(顺序不限)，即为中奖（包含豹子号）
+					</div>
+				</div>
+				<div class='item-info-tip item-info-tip-4'>
+					<div class='item-hide'>
+						<font>【单】：</font>
+						开奖号码三个号和值为奇数即中奖。<br/>
+						<font>【实例】：</font>
+						投注「单」，开奖结果为335，和值即为11（奇数），即为中奖（不包含豹子号）
+					</div>
+				</div>
+				<div class='item-info-tip item-info-tip-5'>
+					<div class='item-hide'>
+						<font>【豹子号通选】：</font>
+						对所有相同的三个号码（111、222、333、444、555、666）进行投注，任意号码开出即中奖。<br/>
+						<font>【实例】：</font>
+						投注111，开奖号码为111，即为中奖
+					</div>
+				</div>
+				<div class='item-info-tip item-info-tip-6'>
+					<div class='item-hide'>
+						<font>【和值】：</font>
+						至少选择1个和值（3个号码之和）进行投注，所选和值与开奖的3个号码的和值相同即中奖。<br/>
+						<font>【实例】：</font>
+						投注5，开奖号码为是113，和值为5，即为中奖（包含豹子号）
+					</div>
+				</div>
+				<div class='item-info-tip item-info-tip-7'>
+					<div class='item-hide'>
+						<font>【二不同号】：</font>
+						从15种组合中至少选择一组号码，开奖号码内包含任意一组即中奖。<br/>
+						<font>【实例】：</font>
+						选择12，开奖号码为124(顺序不限)，即为中奖
+					</div>
+				</div>
+				<div class='item-info-tip item-info-tip-8'>
+					<div class='item-hide'>
+						<font>【猜一个号】：</font>
+						从1-6中至少选择1个号码，所选号码在开奖号码中出现1次，即中赔率为单骰的奖金；所选号码在开奖号码中出现2次，即中赔率为双骰的奖金；所选号码在开奖号码中出现3次，即中赔率为全骰的奖金。<br/>
+						<font>【实例】：</font>
+						选择投注号码1，开奖号码123即中单骰奖金，开奖号码112即中双骰奖金，开奖号码111即中全骰奖金
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer id='bottom'>
+		<div class='control'>
+			<div class='control-content'>
+				<button type='button' class='btn empty btn-disabled'>清空</button>
+				<button type='button' class='btn repeal btn-disabled'>撤销</button>
+				<span class='chip-group'>
+					<i class='chip chip-1 chip-seleced' data-money='1.00'></i>
+					<i class='chip chip-2' data-money='2.00'></i>
+					<i class='chip chip-5' data-money='5.00'></i>
+					<i class='chip chip-20'data-money='20.00'></i>
+					<i class='chip chip-50' data-money='50.00'></i>
+				</span>
+				<span class='statics'>
+					<span class='money'>0.00</span>
+				</span>
+				<button type='button' class='btn-submit'>确认下注</button>
+				<button type='button' class='btn storage btn-disabled'>追注</button>
+				<button type='button' class='btn continuation btn-disabled'>连投</button>
+				<span class='my-money'>余额：<span class='num'>1314.52</span></span>
+			</div>
+		</div>
+		<div class='history'>
+			<div class='content'>
+				<ul class='clearfix'></ul>
+			</div>
+		</div>
+	</footer>
+	<div class='explain'>
+		<h2>游戏说明</h2>
+		<p>1. 点击鼠标 <span>【左键】</span> 进行筹码下注</p>
+		<p>2. 点击鼠标 <span>【右键】</span> 进行筹码删除</p>
+		<p>3. 投注限额规则，请查看  <span>投注桌面的‘？’&gt;&gt;</span></p>
+		<p>4. 奖金计算:投注金额乘以赔率加上投注本金</p>
+		<p>作者博客：<span>Thompson</span><a href='http://www.diguagg.com' target="_blank">diguagg.com</a></p>
+		<a class='close' href='javascript:void(0)'>OK</a>
+	</div>
+	<div class='warning'>
+		<p>投注金额超限，该玩法最大投注金额  <span>200.00</span></p>
+		<a class='close' href='javascript:void(0)'>OK</a>
+	</div>
+	<div class='continuationChip'>
+		<p>设置连投次数</p>
+		<input id='continuationChip-text' type='txt' value='5'>
+		<div class='J-game-stop'>
+			中奖即停
+			<label for='J-game-win-stop-n'>
+				<input type='radio' name='J-game-win-stop' id='J-game-win-stop-n' value='0' checked>
+				否
+			</label>
+			<label for='J-game-win-stop-y'>
+				<input type='radio' name='J-game-win-stop' id='J-game-win-stop-y' value='1'>
+				是
+			</label>
+		</div>
+		<a  class='continuation-Btn' href='javascript:;'>确认投注</a><a class='continuation-close' href='javascript:;'>取消</a>
+	</div>
+	<div class="bet-many-tip">
+		自动连续投注中...剩余
+		<span class='bet-many-tip-num'></span>
+		<a class='stop' href='javascript:void(0)'>停止</a>
+	</div>
+	<script type='text/javascript' src='js/data.js'></script>
+	<script type='text/javascript' src='js/count.js'></script>
+ </body>
+</html>
